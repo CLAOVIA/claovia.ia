@@ -9,7 +9,12 @@ import type {
 } from '@prisma/client'
 
 export type { Role, ReportStatus } from '@prisma/client'
-export { UrgencyLevel } from '@prisma/client'
+// Manual definition to resolve build export issues
+export enum UrgencyLevel {
+    LOW = 'LOW',
+    MEDIUM = 'MEDIUM',
+    HIGH = 'HIGH'
+}
 
 // Re-export specific types if needed or use directly
 export type Organization = PrismaOrganization
