@@ -1,6 +1,90 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+
+  /* Palette Sage */
+  --color-sage-50: #F4F7F5;
+  --color-sage-100: #E3EBE6;
+  --color-sage-200: #C5D6CC;
+  --color-sage-300: #A3C2B0;
+  --color-sage-400: #87AB96;
+  --color-sage-500: #6B9078;
+  --color-sage-600: #4F705D;
+  --color-sage-700: #3E5649;
+  --color-sage-800: #2D4438;
+  --color-sage-900: #1F3027;
+
+  /* Animations */
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-slide-up: slideUp 0.6s ease-out forwards;
+  --animate-pulse-soft: pulseSoft 3s infinite;
+  --animate-blob: blob 7s infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out 3s infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-shake: shake 2s cubic-bezier(.36,.07,.19,.97) infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-fade-in-up: fadeInUp 0.5s ease-out forwards;
+  --animate-message-flow: messageFlow 4s infinite;
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+
+  @keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(107, 144, 120, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(107, 144, 120, 0.6); }
+  }
+
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes messageFlow {
+    0% { transform: translateX(0) scale(1); opacity: 1; }
+    45% { transform: translateX(120%) scale(0.5); opacity: 0.5; }
+    55% { transform: translateX(120%) scale(0.5); opacity: 0; }
+    100% { transform: translateX(240%) scale(1); opacity: 0; }
+  }
+
+  @keyframes flowLine {
+    0% { background-position: 100% 0; }
+    100% { background-position: 0 0; }
+  }
+}
 
 @layer base {
   :root {
@@ -58,16 +142,6 @@
     background: linear-gradient(90deg, #E3EBE6 50%, #6B9078 50%);
     background-size: 200% 100%;
     animation: flowLine 3s linear infinite;
-  }
-}
-
-@keyframes flowLine {
-  0% {
-    background-position: 100% 0;
-  }
-
-  100% {
-    background-position: 0 0;
   }
 }
 
