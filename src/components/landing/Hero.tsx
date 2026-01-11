@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Eye, ShieldCheck, Server, Lock, LayoutDashboard, Sun, Bell, ArrowUp } from "lucide-react"
+import { Eye, ShieldCheck, Server, Lock, Command, BrainCircuit, Lightbulb, Square, Briefcase, Mail, Mic2 } from "lucide-react"
 
 export function Hero() {
     return (
@@ -59,60 +59,120 @@ export function Hero() {
                     </div>
                 </div>
 
-                {/* Hero Visual (3D Mockup) */}
+                {/* Hero Visual - Rapport REX Mockup */}
                 <div className="relative hidden lg:block perspective-1000">
-                    <div className="relative transform rotate-x-12 rotate-y-inv-12 hover:rotate-0 transition-transform duration-700 preserve-3d">
-                        <div className="bg-white rounded-[2rem] border border-sage-200 shadow-2xl p-6 relative z-10">
-                            {/* Card Header */}
-                            <div className="flex justify-between items-center mb-6 pb-6 border-b border-sage-100">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-sage-100 rounded-xl flex items-center justify-center text-sage-600">
-                                        <LayoutDashboard className="w-6 h-6" />
+                    <div className="relative transform rotate-y-inv-12 hover:rotate-0 transition-transform duration-700 preserve-3d">
+                        <div className="bg-white rounded-[2rem] border border-sage-200 shadow-2xl overflow-hidden relative z-10">
+                            {/* Report Header */}
+                            <header className="flex justify-between items-end border-b-2 border-sage-100 p-6 pb-4">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-12 h-12 rounded-2xl bg-sage-900 flex items-center justify-center text-white shadow-lg">
+                                        <Command className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-sage-900 text-lg">REX Manager • Q1 2026</h3>
-                                        <p className="text-sm text-stone-500">Vue d'ensemble équipe</p>
+                                        <h3 className="text-xl font-bold text-sage-900 tracking-tight leading-none">Rapport REX</h3>
+                                        <p className="text-xs text-stone-500 font-medium mt-1">Analyse Confidentielle</p>
                                     </div>
                                 </div>
-                                <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
-                                    Actif
-                                </span>
-                            </div>
+                                <div className="text-right">
+                                    <p className="text-sm font-bold text-sage-900">Marie Dupont</p>
+                                    <p className="text-[10px] text-stone-400 font-mono">24 Oct 2025</p>
+                                </div>
+                            </header>
 
-                            {/* Content Grid */}
-                            <div className="grid grid-cols-2 gap-4">
-                                {/* Card 1 */}
-                                <div className="bg-stone-50 p-4 rounded-xl border border-stone-100">
-                                    <div className="flex justify-between items-start mb-2">
-                                        <span className="text-xs font-bold text-stone-400 uppercase">Climat</span>
-                                        <Sun className="w-4 h-4 text-amber-500" />
-                                    </div>
-                                    <p className="text-2xl font-bold text-sage-900">7.8/10</p>
-                                    <p className="text-xs text-green-600 mt-1 flex items-center gap-1">
-                                        <ArrowUp className="w-3 h-3" /> +0.4 pts
+                            <div className="p-6 space-y-5">
+                                {/* Synthèse IA */}
+                                <div className="bg-stone-50 p-4 rounded-xl border border-stone-100 relative">
+                                    <div className="absolute -left-0.5 top-4 bottom-4 w-1 bg-sage-500 rounded-r-full"></div>
+                                    <h4 className="text-[10px] font-bold text-sage-600 uppercase tracking-widest mb-2 flex items-center gap-2">
+                                        <BrainCircuit className="w-3 h-3" /> Synthèse IA
+                                    </h4>
+                                    <p className="text-stone-700 text-xs leading-relaxed mb-3">
+                                        Marie est engagée mais se sent <strong>saturée par l&apos;administratif</strong>. Décalage perçu avec un management trop axé résultats.
                                     </p>
-                                </div>
-                                {/* Card 2 */}
-                                <div className="bg-stone-50 p-4 rounded-xl border border-stone-100">
-                                    <div className="flex justify-between items-start mb-2">
-                                        <span className="text-xs font-bold text-stone-400 uppercase">Alertes</span>
-                                        <Bell className="w-4 h-4 text-red-500" />
+                                    <div className="flex items-center gap-2 bg-white p-2 rounded-lg border border-stone-200 shadow-sm">
+                                        <div className="bg-amber-100 p-1 rounded text-amber-600"><Lightbulb className="w-3 h-3" /></div>
+                                        <p className="text-[10px] font-bold text-stone-700">Conseil : &quot;Contrôleur&quot; → &quot;Facilitateur&quot;</p>
                                     </div>
-                                    <p className="text-2xl font-bold text-sage-900">2</p>
-                                    <p className="text-xs text-red-600 mt-1 font-medium">À traiter</p>
                                 </div>
-                                {/* Wide Card */}
-                                <div className="col-span-2 bg-sage-900 text-white p-5 rounded-xl shadow-lg relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
-                                    <h4 className="text-sm font-bold mb-2 relative z-10">Dernier REX : Marie D.</h4>
-                                    <p className="text-xs text-sage-200 mb-4 relative z-10 line-clamp-2">
-                                        "Besoin de soutien opérationnel identifié. Risque de surcharge sur le dossier Alpha..."
-                                    </p>
-                                    <div className="flex items-center gap-2 relative z-10">
-                                        <button className="bg-white text-sage-900 px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-sage-100 transition-colors">
-                                            Voir l'analyse
-                                        </button>
-                                        <span className="text-[10px] text-sage-300">Reçu il y a 2h</span>
+
+                                {/* Analyse Thématique Grid - 2x3 */}
+                                <div>
+                                    <h4 className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-3">Analyse par Thématique</h4>
+                                    <div className="grid grid-cols-2 gap-2">
+                                        <div className="p-2.5 bg-white rounded-lg border border-stone-200 shadow-sm flex gap-2">
+                                            <div className="mt-0.5"><div className="w-2 h-2 rounded-full bg-orange-500"></div></div>
+                                            <div>
+                                                <p className="text-[8px] font-bold text-stone-400 uppercase">T1. Relation</p>
+                                                <p className="text-xs font-bold text-sage-900">Manque soutien</p>
+                                            </div>
+                                        </div>
+                                        <div className="p-2.5 bg-white rounded-lg border border-stone-200 shadow-sm flex gap-2">
+                                            <div className="mt-0.5"><div className="w-2 h-2 rounded-full bg-red-500"></div></div>
+                                            <div>
+                                                <p className="text-[8px] font-bold text-stone-400 uppercase">T2. Charge</p>
+                                                <p className="text-xs font-bold text-sage-900">Saturée</p>
+                                            </div>
+                                        </div>
+                                        <div className="p-2.5 bg-white rounded-lg border border-stone-200 shadow-sm flex gap-2">
+                                            <div className="mt-0.5"><div className="w-2 h-2 rounded-full bg-yellow-400"></div></div>
+                                            <div>
+                                                <p className="text-[8px] font-bold text-stone-400 uppercase">T3. Motivation</p>
+                                                <p className="text-xs font-bold text-sage-900">Freinée</p>
+                                            </div>
+                                        </div>
+                                        <div className="p-2.5 bg-white rounded-lg border border-stone-200 shadow-sm flex gap-2">
+                                            <div className="mt-0.5"><div className="w-2 h-2 rounded-full bg-green-500"></div></div>
+                                            <div>
+                                                <p className="text-[8px] font-bold text-stone-400 uppercase">T4. Objectifs</p>
+                                                <p className="text-xs font-bold text-sage-900">Clairs</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Plan d'Action */}
+                                <div>
+                                    <h4 className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-3">Plan d&apos;Action</h4>
+                                    <div className="space-y-2">
+                                        <div className="flex items-center gap-3 p-3 bg-white border-l-4 border-red-500 rounded-r-lg shadow-sm ring-1 ring-stone-100">
+                                            <Square className="w-4 h-4 text-stone-300 shrink-0" />
+                                            <div className="flex-1">
+                                                <div className="flex justify-between items-center gap-2">
+                                                    <h5 className="text-xs font-bold text-sage-900">Envoyer l&apos;email</h5>
+                                                    <span className="text-[8px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold uppercase">Maintenant</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-3 p-3 bg-white border-l-4 border-sage-500 rounded-r-lg shadow-sm ring-1 ring-stone-100">
+                                            <Square className="w-4 h-4 text-stone-300 shrink-0" />
+                                            <div className="flex-1">
+                                                <div className="flex justify-between items-center gap-2">
+                                                    <h5 className="text-xs font-bold text-sage-900">Point Hebdo (30 min)</h5>
+                                                    <span className="text-[8px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded font-bold uppercase">Planifier</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Kit Manager */}
+                                <div className="bg-sage-50 p-4 rounded-xl border border-sage-100">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <div className="bg-white p-1.5 rounded-lg shadow-sm text-sage-700">
+                                            <Briefcase className="w-4 h-4" />
+                                        </div>
+                                        <h4 className="text-xs font-bold text-sage-900 uppercase tracking-wider">Kit Manager</h4>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-2">
+                                        <div className="bg-white rounded-lg p-2.5 border border-sage-200 flex items-center gap-2">
+                                            <Mail className="w-4 h-4 text-blue-600" />
+                                            <p className="text-[10px] font-bold text-stone-800">Email prêt</p>
+                                        </div>
+                                        <div className="bg-white rounded-lg p-2.5 border border-sage-200 flex items-center gap-2">
+                                            <Mic2 className="w-4 h-4 text-purple-600" />
+                                            <p className="text-[10px] font-bold text-stone-800">Script entretien</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

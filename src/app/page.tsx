@@ -1,5 +1,5 @@
 import { Navbar } from "@/components/layout/Navbar";
-import { Hero } from "@/components/landing/Hero";
+import { HeroPremium } from "@/components/landing/HeroPremium";
 import { MetricsSection } from "@/components/landing/MetricsSection";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { DemoSection } from "@/components/landing/DemoSection";
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-sage-50">
       <Navbar />
-      <Hero />
+      <HeroPremium />
       <MetricsSection />
       <HowItWorks />
       <DemoSection />

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Footer } from "@/components/layout/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -9,8 +8,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Claovia - Pilotage d'Équipe Augmenté",
-  description: "L'assistant IA qui transforme le management de proximité.",
+  title: "Claovia - Transformez chaque feedback en action",
+  description: "L'IA qui donne a vos managers les outils pour comprendre et agir. 93% des salaries ne se sentent pas ecoutes. Changez ca.",
+  keywords: ["RH", "feedback", "manager", "collaborateur", "IA", "REX", "retour experience"],
+  openGraph: {
+    title: "Claovia - Transformez chaque feedback en action",
+    description: "L'IA qui donne a vos managers les outils pour comprendre et agir.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -23,10 +28,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} bg-sage-50 text-stone-600 antialiased font-sans selection:bg-sage-200 selection:text-sage-900 overflow-x-hidden`}
       >
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
