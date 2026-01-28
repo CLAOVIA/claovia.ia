@@ -19,8 +19,8 @@ export function Navbar() {
     return (
         <nav
             className={`fixed w-full z-50 top-0 left-0 transition-all duration-300 ${isScrolled
-                    ? "bg-sage-50/80 backdrop-blur-md border-b border-sage-100"
-                    : "bg-transparent border-transparent"
+                ? "bg-sage-50/80 backdrop-blur-md border-b border-sage-100"
+                : "bg-transparent border-transparent"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -55,7 +55,7 @@ export function Navbar() {
                         Démo
                     </Link>
                     <Link
-                        href="#vision-section"
+                        href="#vision"
                         className="text-sm font-medium text-stone-600 hover:text-sage-800 transition-colors"
                     >
                         Notre Vision
@@ -64,13 +64,15 @@ export function Navbar() {
 
                 {/* Desktop CTA */}
                 <div className="hidden md:flex items-center gap-4">
-                    <Link
-                        href="/onboarding"
+                    <a
+                        href="https://typebot.co/l-o-l-2-svsf1j3"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-sage-900 text-white text-sm font-medium hover:bg-sage-800 transition-all hover:shadow-lg hover:shadow-sage-900/20 hover:-translate-y-0.5"
                     >
                         <PlayCircle className="w-4 h-4" />
                         Tester le REX
-                    </Link>
+                    </a>
                 </div>
 
                 {/* Mobile Toggle */}
@@ -112,19 +114,21 @@ export function Navbar() {
                             Démo
                         </Link>
                         <Link
-                            href="#vision-section"
+                            href="#vision"
                             className="text-sm font-medium text-stone-600 py-2 border-b border-stone-50"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Notre Vision
                         </Link>
-                        <Link
-                            href="/onboarding"
+                        <a
+                            href="https://typebot.co/l-o-l-2-svsf1j3"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="block text-center px-5 py-3 rounded-xl bg-sage-800 text-white text-sm font-medium shadow-md shadow-sage-900/10 mt-2"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Tester le REX
-                        </Link>
+                        </a>
                     </div>
                 </div>
             )}
