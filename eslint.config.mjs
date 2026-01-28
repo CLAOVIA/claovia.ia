@@ -13,6 +13,23 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  // Custom rules for Claovia
+  {
+    rules: {
+      // TypeScript strict rules
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+
+      // React best practices
+      "react/jsx-curly-brace-presence": ["warn", { props: "never", children: "never" }],
+
+      // Import organization
+      "import/order": "off", // Handled by IDE/Prettier
+
+      // Console statements (warn in dev, error in prod)
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+    },
+  },
 ]);
 
 export default eslintConfig;

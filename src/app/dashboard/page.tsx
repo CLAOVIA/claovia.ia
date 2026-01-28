@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { createClient } from "@/lib/supabase/server";
 import { RexCard } from "@/components/dashboard/RexCard";
+import { RexLinkGenerator } from "@/components/dashboard/RexLinkGenerator";
 import { Sparkles, Filter } from "lucide-react";
 import { redirect } from "next/navigation";
 
@@ -47,11 +48,11 @@ export default async function DashboardPage() {
                     <button className="flex items-center gap-2 px-4 py-2 rounded-lg border border-stone-200 bg-white text-sm font-medium text-stone-600 hover:bg-stone-50">
                         <Filter className="w-4 h-4" /> Filtres
                     </button>
-                    <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-sage-800 text-white text-sm font-medium hover:bg-sage-900 shadow-sm">
-                        <Sparkles className="w-4 h-4" /> Nouvelle Analyse
-                    </button>
                 </div>
             </div>
+
+            {/* REX Link Generator */}
+            <RexLinkGenerator />
 
             {/* Reports Grid */}
             {reports.length > 0 ? (
