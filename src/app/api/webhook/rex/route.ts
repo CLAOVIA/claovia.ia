@@ -2,13 +2,19 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { analyzeRexFeedback, TypebotPayload } from '@/lib/gemini';
 import { generateAllPdfs } from '@/lib/pdf';
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-// Supabase client pour le storage
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// Supabase client pour le storage (lazy initialization)
+let _supabase: SupabaseClient | null = null;
+function getSupabase(): SupabaseClient {
+  if (!_supabase) {
+    _supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+      process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+    );
+  }
+  return _supabase;
+}
 
 // Mapper les données brutes Typebot vers notre structure
 function mapTypebotPayload(body: Record<string, unknown>): TypebotPayload {
@@ -138,10 +144,10 @@ export async function POST(request: NextRequest) {
     const managerPath = `rex/${timestamp}/manager_${payload.prenom}_${payload.nom}.pdf`;
 
     const [collabUpload, managerUpload] = await Promise.all([
-      supabase.storage.from('documents').upload(collaborateurPath, pdfs.collaborateur.buffer!, {
+      getSupabase().storage.from('documents').upload(collaborateurPath, pdfs.collaborateur.buffer!, {
         contentType: 'application/pdf',
       }),
-      supabase.storage.from('documents').upload(managerPath, pdfs.manager.buffer!, {
+      getSupabase().storage.from('documents').upload(managerPath, pdfs.manager.buffer!, {
         contentType: 'application/pdf',
       }),
     ]);
@@ -154,8 +160,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Récupérer les URLs publiques
-    const { data: collabUrl } = supabase.storage.from('documents').getPublicUrl(collaborateurPath);
-    const { data: managerUrl } = supabase.storage.from('documents').getPublicUrl(managerPath);
+    const { data: collabUrl } = getSupabase().storage.from('documents').getPublicUrl(collaborateurPath);
+    const { data: managerUrl } = getSupabase().storage.from('documents').getPublicUrl(managerPath);
 
     // 7. Créer le rapport REX
     const rexReport = await prisma.rexReport.create({
