@@ -1,14 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Build optimizations for Vercel
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-
   // Security headers
   async headers() {
     return [
@@ -50,4 +42,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
