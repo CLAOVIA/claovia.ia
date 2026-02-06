@@ -1,14 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Simple webhook endpoint for REX (no database for MVP)
+const WEBHOOK_SECRET = process.env.TYPEBOT_WEBHOOK_SECRET;
+
 export async function POST(request: NextRequest) {
     try {
-        const body = await request.json();
-        // eslint-disable-next-line no-console
-        console.log('Webhook REX reçu:', JSON.stringify(body, null, 2));
+        // Verify webhook secret
+        const authHeader = request.headers.get('x-webhook-secret') || request.headers.get('authorization');
+        if (WEBHOOK_SECRET && authHeader !== WEBHOOK_SECRET && authHeader !== `Bearer ${WEBHOOK_SECRET}`) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        }
 
-        // For MVP: just acknowledge receipt
-        // TODO: Add Supabase integration when database is needed
+        const body = await request.json();
+
+        // Log only non-sensitive metadata (no PII)
+        // eslint-disable-next-line no-console
+        console.log('Webhook REX reçu:', {
+            timestamp: new Date().toISOString(),
+            hasPayload: !!body,
+            keys: Object.keys(body),
+        });
 
         return NextResponse.json({
             success: true,
@@ -18,12 +28,9 @@ export async function POST(request: NextRequest) {
 
     } catch (error) {
         // eslint-disable-next-line no-console
-        console.error('Erreur webhook REX:', error);
+        console.error('Erreur webhook REX');
         return NextResponse.json(
-            {
-                error: 'Erreur lors du traitement',
-                details: error instanceof Error ? error.message : 'Erreur inconnue',
-            },
+            { error: 'Erreur lors du traitement' },
             { status: 500 }
         );
     }
@@ -33,8 +40,7 @@ export async function POST(request: NextRequest) {
 export async function GET() {
     return NextResponse.json({
         status: 'ok',
-        message: 'Webhook REX actif (MVP mode)',
+        message: 'Webhook REX actif',
         timestamp: new Date().toISOString(),
     });
 }
-
