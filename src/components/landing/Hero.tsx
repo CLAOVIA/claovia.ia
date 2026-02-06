@@ -17,7 +17,7 @@ export function Hero() {
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-sage-500"></span>
                         </span>
                         <span className="text-xs font-semibold text-sage-800 tracking-wide uppercase">
-                            Pilotage d'Équipe Augmenté
+                            Pilotage d&apos;Équipe Augmenté
                         </span>
                     </div>
 
@@ -38,7 +38,7 @@ export function Hero() {
                             Essayer Gratuitement
                         </Link>
                         <Link
-                            href="#demo-section"
+                            href="/onboarding"
                             className="px-8 py-4 rounded-full bg-white border border-sage-200 text-sage-800 text-base font-medium hover:bg-sage-50 transition-all flex items-center justify-center gap-2 hover:-translate-y-1"
                         >
                             <Eye className="w-4 h-4" />

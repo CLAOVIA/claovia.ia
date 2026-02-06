@@ -27,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <head>
+      <body
+        className={`${inter.variable} bg-sage-50 text-stone-600 antialiased font-sans selection:bg-sage-200 selection:text-sage-900 overflow-x-hidden`}
+      >
         {/* Google Tag Manager */}
         <Script
           id="gtm-script"
@@ -40,11 +42,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5S4L9MDR');`,
           }}
         />
-        {/* End Google Tag Manager */}
-      </head>
-      <body
-        className={`${inter.variable} bg-sage-50 text-stone-600 antialiased font-sans selection:bg-sage-200 selection:text-sage-900 overflow-x-hidden`}
-      >
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -54,7 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
+        {/* End Google Tag Manager */}
         {children}
         <Analytics />
       </body>

@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
+        // eslint-disable-next-line no-console
         console.log('Webhook REX reçu:', JSON.stringify(body, null, 2));
 
         // For MVP: just acknowledge receipt
@@ -16,6 +17,7 @@ export async function POST(request: NextRequest) {
         });
 
     } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Erreur webhook REX:', error);
         return NextResponse.json(
             {

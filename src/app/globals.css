@@ -178,3 +178,13 @@
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+
+/* Disable heavy animations on mobile and for reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; opacity: 1; transform: none; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}
+
+@media (max-width: 768px) {
+  .connection-line { animation: none; background: #C5D6CC; }
+}

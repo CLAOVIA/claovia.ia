@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Command, Menu, PlayCircle, X } from "lucide-react";
+import { Command, Menu, MessageCircle, PlayCircle, X } from "lucide-react";
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -60,19 +60,30 @@ export function Navbar() {
                     >
                         Notre Vision
                     </Link>
+                    <Link
+                        href="#feedback-section"
+                        className="text-sm font-medium text-stone-600 hover:text-sage-800 transition-colors"
+                    >
+                        Feedback
+                    </Link>
                 </div>
 
                 {/* Desktop CTA */}
-                <div className="hidden md:flex items-center gap-4">
-                    <a
-                        href="https://typebot.co/l-o-l-2-svsf1j3"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                <div className="hidden md:flex items-center gap-3">
+                    <Link
+                        href="#feedback-section"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-sage-200 text-sage-700 text-sm font-medium hover:bg-sage-100 transition-all hover:-translate-y-0.5"
+                    >
+                        <MessageCircle className="w-4 h-4" />
+                        Donner mon avis
+                    </Link>
+                    <Link
+                        href="/rex"
                         className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-sage-900 text-white text-sm font-medium hover:bg-sage-800 transition-all hover:shadow-lg hover:shadow-sage-900/20 hover:-translate-y-0.5"
                     >
                         <PlayCircle className="w-4 h-4" />
                         Tester le REX
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Mobile Toggle */}
@@ -120,15 +131,27 @@ export function Navbar() {
                         >
                             Notre Vision
                         </Link>
-                        <a
-                            href="https://typebot.co/l-o-l-2-svsf1j3"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block text-center px-5 py-3 rounded-xl bg-sage-800 text-white text-sm font-medium shadow-md shadow-sage-900/10 mt-2"
+                        <Link
+                            href="#feedback-section"
+                            className="text-sm font-medium text-stone-600 py-2 border-b border-stone-50"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Feedback
+                        </Link>
+                        <Link
+                            href="#feedback-section"
+                            className="block text-center px-5 py-3 rounded-xl border border-sage-200 text-sage-700 text-sm font-medium mt-2"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Donner mon avis
+                        </Link>
+                        <Link
+                            href="/rex"
+                            className="block text-center px-5 py-3 rounded-xl bg-sage-800 text-white text-sm font-medium shadow-md shadow-sage-900/10"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Tester le REX
-                        </a>
+                        </Link>
                     </div>
                 </div>
             )}

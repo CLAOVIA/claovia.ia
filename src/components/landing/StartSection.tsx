@@ -22,15 +22,13 @@ export function StartSection() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a
-                        href="https://typebot.co/l-o-l-2-svsf1j3"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Link
+                        href="/rex"
                         className="px-8 py-4 bg-white text-sage-900 rounded-full font-bold text-lg hover:bg-sage-50 transition-all hover:scale-105 flex items-center gap-2 group"
                     >
                         Lancer un REX
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                     <Link
                         href="#demo-section"
                         className="px-8 py-4 bg-transparent border border-white/20 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all"
