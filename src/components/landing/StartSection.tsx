@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { trackEvent } from "@/lib/gtm";
 
 export function StartSection() {
     return (
@@ -24,6 +27,7 @@ export function StartSection() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <Link
                         href="/rex"
+                        onClick={() => trackEvent("cta_click", { cta_name: "lancer_rex", section: "start" })}
                         className="px-8 py-4 bg-white text-sage-900 rounded-full font-bold text-lg hover:bg-sage-50 transition-all hover:scale-105 flex items-center gap-2 group"
                     >
                         Lancer un REX
@@ -31,6 +35,7 @@ export function StartSection() {
                     </Link>
                     <Link
                         href="#demo-section"
+                        onClick={() => trackEvent("cta_click", { cta_name: "decouvrir_demo", section: "start" })}
                         className="px-8 py-4 bg-transparent border border-white/20 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all"
                     >
                         Découvrir la démo
@@ -40,20 +45,28 @@ export function StartSection() {
                 {/* Mode Explanation */}
                 <div className="mt-8 max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                     <div className="grid sm:grid-cols-2 gap-4 text-left">
-                        <div className="flex items-start gap-3">
+                        <button
+                            type="button"
+                            onClick={() => trackEvent("mode_click", { mode: "test", section: "start" })}
+                            className="flex items-start gap-3 rounded-lg p-2 hover:bg-white/10 transition-colors text-left cursor-pointer"
+                        >
                             <div className="w-3 h-3 mt-1.5 rounded-full bg-emerald-400 shrink-0"></div>
                             <div>
                                 <p className="text-sm font-bold text-white">Mode Test</p>
                                 <p className="text-xs text-sage-200">Le collaborateur reçoit sa synthèse et le manager reçoit le REX.</p>
                             </div>
-                        </div>
-                        <div className="flex items-start gap-3">
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => trackEvent("mode_click", { mode: "reel", section: "start" })}
+                            className="flex items-start gap-3 rounded-lg p-2 hover:bg-white/10 transition-colors text-left cursor-pointer"
+                        >
                             <div className="w-3 h-3 mt-1.5 rounded-full bg-blue-400 shrink-0"></div>
                             <div>
                                 <p className="text-sm font-bold text-white">Mode Réel</p>
                                 <p className="text-xs text-sage-200">Le collaborateur reçoit sa synthèse et le manager reçoit également les résultats.</p>
                             </div>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>

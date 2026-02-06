@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { MessageSquare, Cpu, CheckCircle2 } from "lucide-react";
+import { trackEvent } from "@/lib/gtm";
 
 export function HowItWorks() {
     return (
@@ -57,6 +60,7 @@ export function HowItWorks() {
                 <div className="mt-16 text-center">
                     <Link
                         href="/rex"
+                        onClick={() => trackEvent("cta_click", { cta_name: "commencer_maintenant", section: "how_it_works" })}
                         className="inline-flex items-center gap-2 px-8 py-4 bg-sage-800 text-white rounded-full font-bold text-lg hover:bg-sage-900 transition-all hover:scale-105 shadow-lg shadow-sage-300/30"
                     >
                         Commencer maintenant
@@ -67,8 +71,18 @@ export function HowItWorks() {
 
                     {/* Mode Explanation */}
                     <div className="mt-6 max-w-xl mx-auto text-xs text-stone-500 space-y-1">
-                        <p><span className="font-semibold text-emerald-600">Mode Test :</span> Le collaborateur reçoit sa synthèse et le manager reçoit le REX.</p>
-                        <p><span className="font-semibold text-blue-600">Mode Réel :</span> Le collaborateur reçoit sa synthèse et le manager reçoit également les résultats.</p>
+                        <p
+                            onClick={() => trackEvent("mode_click", { mode: "test", section: "how_it_works" })}
+                            className="cursor-pointer hover:text-stone-700 transition-colors"
+                        >
+                            <span className="font-semibold text-emerald-600">Mode Test :</span> Le collaborateur reçoit sa synthèse et le manager reçoit le REX.
+                        </p>
+                        <p
+                            onClick={() => trackEvent("mode_click", { mode: "reel", section: "how_it_works" })}
+                            className="cursor-pointer hover:text-stone-700 transition-colors"
+                        >
+                            <span className="font-semibold text-blue-600">Mode Réel :</span> Le collaborateur reçoit sa synthèse et le manager reçoit également les résultats.
+                        </p>
                     </div>
                 </div>
             </div>
